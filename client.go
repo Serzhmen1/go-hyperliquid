@@ -68,6 +68,7 @@ func (c *client) post(ctx context.Context, path string, payload any) ([]byte, er
 	req.Header.Set("Origin", "https://testnet.ventuals.com")
 	req.Header.Set("Referer", "https://testnet.ventuals.com/")
 
+	fmt.Println(req.Header)
 	if c.debug {
 		c.logger.WithFields(lol.Fields{
 			"method": "POST",
