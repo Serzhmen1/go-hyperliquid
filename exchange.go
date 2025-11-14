@@ -127,7 +127,6 @@ func (e *Exchange) postAction(
 		"action":    action,
 		"nonce":     nonce,
 		"signature": signature,
-		"dex":       "vntl",
 	}
 
 	if e.vault != "" {
