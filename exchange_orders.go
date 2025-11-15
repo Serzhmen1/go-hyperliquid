@@ -94,7 +94,7 @@ func newCreateOrderAction(
 			return OrderAction{}, fmt.Errorf("failed to wire size for order %d: %w", i, err)
 		}
 
-		assetId, err := strconv.ParseInt(order.Coin, 10, 8)
+		assetId, err := strconv.ParseInt(order.Coin, 10, 32)
 		if err != nil {
 			return OrderAction{}, fmt.Errorf("failed to wire assetId for order %d: %w", i, err)
 		}

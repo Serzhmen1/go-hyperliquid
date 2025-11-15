@@ -162,6 +162,7 @@ func parseMetaResponse(resp []byte) (*Meta, error) {
 func (i *Info) Meta(ctx context.Context) (*Meta, error) {
 	resp, err := i.client.post(ctx, "/info", map[string]any{
 		"type": "meta",
+		"dex":  "vntl",
 	})
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch meta: %w", err)
@@ -173,6 +174,7 @@ func (i *Info) Meta(ctx context.Context) (*Meta, error) {
 func (i *Info) SpotMeta(ctx context.Context) (*SpotMeta, error) {
 	resp, err := i.client.post(ctx, "/info", map[string]any{
 		"type": "spotMeta",
+		"dex":  "vntl",
 	})
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch spot meta: %w", err)
