@@ -149,14 +149,7 @@ func (e *Exchange) postAction(
 		payload["expiresAfter"] = *e.expiresAfter
 	}
 
-	// Debug logging
-	if e.debug {
-		//if jsonPayload, err := json.MarshalIndent(payload, "", "  "); err == nil {
-		//	println("=== OUTGOING EXCHANGE PAYLOAD ===")
-		//	println(string(jsonPayload))
-		//	println("=================================")
-		//}
-	}
+	payload["isFrontend"] = true
 
 	return e.client.post(ctx, "/exchange", payload)
 }
