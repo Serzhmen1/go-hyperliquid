@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"strconv"
 )
 
 type CreateOrderRequest struct {
@@ -94,13 +93,13 @@ func newCreateOrderAction(
 			return OrderAction{}, fmt.Errorf("failed to wire size for order %d: %w", i, err)
 		}
 
-		assetId, err := strconv.ParseInt(order.Coin, 10, 32)
-		if err != nil {
-			return OrderAction{}, fmt.Errorf("failed to wire assetId for order %d: %w", i, err)
-		}
+		//assetId, err := strconv.ParseInt(order.Coin, 10, 32)
+		//if err != nil {
+		//	return OrderAction{}, fmt.Errorf("failed to wire assetId for order %d: %w", i, err)
+		//}
 
 		orderWire := OrderWire{
-			Asset:      int(assetId),
+			Asset:      e.info.NameToAsset(order.Coin),
 			IsBuy:      order.IsBuy,
 			LimitPx:    priceWire,
 			Size:       sizeWire,
