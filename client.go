@@ -68,10 +68,6 @@ func (c *client) post(ctx context.Context, path string, payload any) ([]byte, er
 	req.Header.Set("Origin", "https://app.hyperliquid.xyz")
 	req.Header.Set("Referer", "https://app.hyperliquid.xyz")
 
-	fmt.Println("body: ", req.Body)
-	fmt.Println("headers: ", req.Header)
-	fmt.Println("url: ", url)
-
 	if c.debug {
 		c.logger.WithFields(lol.Fields{
 			"method": "POST",
